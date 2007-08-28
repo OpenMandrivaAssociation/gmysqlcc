@@ -50,7 +50,6 @@ Icon=databases_section
 Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-MoreApplications-Databases;Database;
-Encoding=UTF-8
 EOF
 
 %find_lang %name
