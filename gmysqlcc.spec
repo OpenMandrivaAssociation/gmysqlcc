@@ -1,6 +1,6 @@
 %define name	gmysqlcc
 %define version 0.2.6
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name: 	 	%{name}
 Summary: 	Graphically controls MySQL databases
@@ -9,11 +9,17 @@ Release: 	%{release}
 
 Source:		http://ftp.thepozer.org/gmysqlcc/%{name}-%{version}.tar.bz2
 URL:		http://gmysqlcc.thepozer.net/
-License:	GPL
+License:	GPL+
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	pkgconfig ImageMagick gtk2-devel bison
-BuildRequires:  automake1.4 mysql-common mysql-client mysql-devel
+BuildRequires:	pkgconfig 
+BuildRequires:	ImageMagick 
+BuildRequires:	gtk2-devel 
+BuildRequires:	bison
+BuildRequires:  mysql-common 
+BuildRequires:  mysql-client 
+BuildRequires:  mysql-devel
+BuildRequires:	automake1.4
 
 %description
 With gmysqlcc, you can :
@@ -34,23 +40,20 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall
 rm -fr $RPM_BUILD_ROOT/usr/doc/%name
 
-#menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="databases_section.png" needs="x11" title="GMySQLCC" longtitle="Database Control Centre" section="More Applications/Databases" xdg="true"
-EOF
+# icons
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=GMySQLCC
-Comment=%{summary}
-Exec=%{_bindir}/%{name}
-Icon=databases_section
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-MoreApplications-Databases;Database;
-EOF
+install -m 644 data/%{name}-16.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+install -m 644 data/%{name}-32.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -m 644 data/%{name}-48.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+install -m 644 data/%{name}-64.png %{buildroot}%{_iconsdir}/hicolor/64x64/apps/%{name}.png
+
+# menu
+
+perl -pi -e 's,gmysqlcc-32.png,%{name},g' %{buildroot}%{_datadir}/applications/%{name}.desktop
+desktop-file-install --vendor="" \
+  --remove-key="Encoding" \
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+
 
 %find_lang %name
 
@@ -59,17 +62,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_menus
+%update_icon_cache hicolor
 		
 %postun
 %clean_menus
+%clean_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc ABOUT-NLS AUTHORS NEWS README TODO
-%{_bindir}/%name
-%{_menudir}/%name
-%{_datadir}/applications/mandriva-%{name}.desktop
-%{_datadir}/applications/gmysqlcc.desktop
+%{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}-*.png
-
-
+%{_iconsdir}/hicolor/*/apps/%{name}.png
