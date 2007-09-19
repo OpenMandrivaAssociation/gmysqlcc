@@ -42,10 +42,10 @@ rm -fr $RPM_BUILD_ROOT/usr/doc/%name
 
 # icons
 
-install -m 644 data/%{name}-16.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
-install -m 644 data/%{name}-32.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-install -m 644 data/%{name}-48.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
-install -m 644 data/%{name}-64.png %{buildroot}%{_iconsdir}/hicolor/64x64/apps/%{name}.png
+install -m 644 -D data/%{name}-16.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+install -m 644 -D data/%{name}-32.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -m 644 -D data/%{name}-48.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+install -m 644 -D data/%{name}-64.png %{buildroot}%{_iconsdir}/hicolor/64x64/apps/%{name}.png
 
 # menu
 
