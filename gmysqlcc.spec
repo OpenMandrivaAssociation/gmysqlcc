@@ -20,6 +20,7 @@ BuildRequires:  mysql-common
 BuildRequires:  mysql-client 
 BuildRequires:  mysql-devel
 BuildRequires:	automake1.4
+BuildRequires:	desktop-file-utils
 
 %description
 With gmysqlcc, you can :
