@@ -11,6 +11,7 @@ Source:		http://ftp.thepozer.org/gmysqlcc/%{name}-%{version}.tar.bz2
 URL:		http://gmysqlcc.thepozer.net/
 License:	GPL+
 Group:		Databases
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	pkgconfig 
 BuildRequires:	ImageMagick 
 BuildRequires:	gtk2-devel 
