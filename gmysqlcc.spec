@@ -1,13 +1,13 @@
 %define name	gmysqlcc
-%define version 0.2.6
-%define release %mkrel 2
+%define version 0.3.0
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Graphically controls MySQL databases
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://ftp.thepozer.org/gmysqlcc/%{name}-%{version}.tar.bz2
+Source:		http://ftp.thepozer.org/gmysqlcc/%{name}-%{version}.tar.gz
 URL:		http://gmysqlcc.thepozer.net/
 License:	GPL+
 Group:		Databases
@@ -19,7 +19,6 @@ BuildRequires:	bison
 BuildRequires:  mysql-common 
 BuildRequires:  mysql-client 
 BuildRequires:  mysql-devel
-BuildRequires:	automake1.4
 BuildRequires:	desktop-file-utils
 
 %description
@@ -30,7 +29,6 @@ With gmysqlcc, you can :
 
 %prep
 %setup -q
-cp /usr/share/automake-1.4/mkinstalldirs .
 
 %build
 %configure2_5x
