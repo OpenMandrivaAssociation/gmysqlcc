@@ -13,7 +13,7 @@ License:	GPL+
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	pkgconfig 
-BuildRequires:	ImageMagick 
+BuildRequires:	imagemagick 
 BuildRequires:	gtk2-devel 
 BuildRequires:	bison
 BuildRequires:  mysql-common 
