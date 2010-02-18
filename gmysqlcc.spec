@@ -36,7 +36,7 @@ With gmysqlcc, you can :
 										
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 rm -fr $RPM_BUILD_ROOT/usr/doc/%name
 
 # icons
