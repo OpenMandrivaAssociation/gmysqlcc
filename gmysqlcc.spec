@@ -1,6 +1,6 @@
 %define name	gmysqlcc
 %define version 0.3.0
-%define release %mkrel 5
+%define release %mkrel 7
 
 Name: 	 	%{name}
 Summary: 	Graphically controls MySQL databases
