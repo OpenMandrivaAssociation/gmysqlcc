@@ -8,7 +8,7 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		http://ftp.thepozer.org/gmysqlcc/%{name}-%{version}.tar.gz
-URL:		http://gmysqlcc.thepozer.net/
+URL:		https://gmysqlcc.thepozer.net/
 License:	GPL+
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
